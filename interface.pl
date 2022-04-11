@@ -59,7 +59,7 @@ questao5:- 	write('*************************************************************
 			write('**'),nl,
 			write('**  1 - Sim.'),nl,
 			write('**  2 - Nao.' ),nl, nl,
-			read(A5),assert(variavel(A4)),resultado.
+			read(A5),assert(variavel(A5)),resultado.
 
 
 resultado:- write('********************************************************************************************************'), nl,                                                                                             **'), nl,
