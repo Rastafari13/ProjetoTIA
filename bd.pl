@@ -29,7 +29,11 @@ alojamento('Dorisol Estrelicia Hotel','67€','7.4',sim,sim,'5.2km',sim,nao,sim,
 alojamento('Madeira Regency Palace Hotel','214€','8.2',sim,sim,'4km',sim,sim,sim,sim,['Aeroporto','Cabo Girão','Museu do CR7','Praia','Mercado dos Lavradores'],['Cascata dos Anjos','Pico do Arieiro'],['Ribeira da Janela','Casas Típicas de Santana']).
 alojamento('Dorisol Mimosa Studio Hotel','66€','7.8',sim,sim,'5.3km',sim,nao,sim,sim,['Mercado dos Lavradores','Museu do CR7','Praia','Cabo Girão','Aeroporto'],['Pico do Arieiro','Cascata dos Anjos'],['Ribeira da Janela','Casas Típicas de Santana']).
 alojamento('Hotel Catedral','80€','8.3',nao,sim,'4km',nao,sim,nao,nao,['Aeroporto','Cabo Girão','Museu do CR7','Praia','Pico do Arieiro','Mercado dos Lavradores'],['Cascata dos Anjos','Casas Típicas de Santana'],['Ribeira da Janela']).
-
+alojamento('Hotel Escola','66€','8.1',sim,sim,'4km',sim,sim,sim,nao,['Aeroporto','Cabo Girão','Museu do CR7','Praia','Mercado dos Lavradores'],['Cascata dos Anjos','Pico do Arieiro'],['Ribeira da Janela','Casas Típicas de Santana']).
+alojamento('Quinta da Saraiva','95€','9.3',nao,sim,'8.7km',sim,sim,sim,nao,['Cascata dos Anjos','Cabo Girão','Museu do CR7','Praia','Mercado dos Lavradores'],['Aeroporto','Pico do Arieiro'],['Ribeira da Janela','Casas Típicas de Santana']).
+alojamento('Madalenas Palace-Sunrise','173€','9.6',nao,sim,'3km',sim,nao,sim,sim,['Aeroporto','Cabo Girão','Museu do CR7','Praia','Mercado dos Lavradores'],['Cascata dos Anjos','Pico do Arieiro'],['Ribeira da Janela','Casas Típicas de Santana']).
+alojamento('Terrace Mar Suite Hotel','100€','8.9',sim,sim,'3km',sim,nao,sim,nao,['Aeroporto','Cabo Girão','Museu do CR7','Praia','Mercado dos Lavradores'],['Cascata dos Anjos','Pico do Arieiro'],['Ribeira da Janela','Casas Típicas de Santana']).
+alojamento('Residencial Santo António','45€','7.6',sim,nao,'20.2km',nao,nao,nao,nao,['Aeroporto','Praia','Mercado dos Lavradores'],['Cabo Girão','Museu do CR7','Casas Típicas de Santana','Pico do Arieiro'],['Cascata dos Anjos','Ribeira da Janela']).
 
 membro( X, [X|_] ).
 membro( X, [_|R] ) :- membro( X, R ).
@@ -45,24 +49,24 @@ relax(H):- temspa(sim,K),tempiscina(sim,U),intersection(K,U,H);true.
 %relaxar
 perfil(1,Z):- temginasio(sim,K),tempa(sim,U),temrestaurante(sim,L),relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
 perfil(2,Z):- temginasio(sim,K),tempa(sim,U),temrestaurante(nao,L),relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
-perfil(3,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(nao, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z). %nao tem nenhum
+perfil(3,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(nao, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
 perfil(4,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(nao, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
-perfil(5,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(sim, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).%nenhum
+perfil(5,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(sim, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
 perfil(6,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(sim, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
-perfil(7,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(nao, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).%nada
-perfil(8,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(sim, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).%nada
+perfil(7,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(nao, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
+perfil(8,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(sim, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
 
 %conhecer ilha
 perfil(9,Z):- temginasio(sim, K), tempa(sim, U), temrestaurante(sim, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
 perfil(10,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(nao, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
 perfil(11,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(sim, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
 perfil(12,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(sim, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
-perfil(13,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(nao, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
+perfil(13,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(nao, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
 perfil(14,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(nao, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
-perfil(15,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(sim, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
+perfil(15,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(sim, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
 perfil(16,Z):- temginasio(sim, K), tempa(sim, U), temrestaurante(nao, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
 perfil(17,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(nao, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
-perfil(18,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(sim, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
+perfil(18,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(sim, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
 perfil(19,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(sim, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
 perfil(20,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(nao, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
 perfil(21,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(nao, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
