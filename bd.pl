@@ -34,14 +34,41 @@ alojamento('Hotel Catedral','80€','8.3',nao,sim,'4km',nao,sim,nao,nao,['Aeropo
 membro( X, [X|_] ).
 membro( X, [_|R] ) :- membro( X, R ).
 
-temrestaurante(X) :- findall(Y,alojamento(Y,_,_,X,_,_,_,_,_,_,_,_,_),K), print(K).
-temginasio(X) :- findall(Y,alojamento(Y,_,_,_,_,_,_,_,_,X,_,_,_),K), print(K).
-temspa(X) :- findall(Y,alojamento(Y,_,_,_,_,_,_,_,X,_,_,_,_),K), print(K).
-temestacionamento(X) :- findall(Y,alojamento(Y,_,_,_,X,_,_,_,_,_,_,_,_),K), print(K).
-tempa(X) :- findall(Y,alojamento(Y,_,_,_,_,_,_,X,_,_,_,_,_),K), print(K).
-tempiscina(X) :- findall(Y,alojamento(Y,_,_,_,_,_,X,_,_,_,_,_,_),K),print(K).
+temrestaurante(X, K) :- findall(Y,alojamento(Y,_,_,X,_,_,_,_,_,_,_,_,_),K);true.
+temginasio(X, K) :- findall(Y,alojamento(Y,_,_,_,_,_,_,_,_,X,_,_,_),K);true.
+temspa(X,K) :- findall(Y,alojamento(Y,_,_,_,_,_,_,_,X,_,_,_,_),K);true.
+temestacionamento(X,K) :- findall(Y,alojamento(Y,_,_,_,X,_,_,_,_,_,_,_,_),K);true.
+tempa(X, K) :- findall(Y,alojamento(Y,_,_,_,_,_,_,X,_,_,_,_,_),K);true.
+tempiscina(X,K) :- findall(Y,alojamento(Y,_,_,_,_,_,X,_,_,_,_,_,_),K);true.
+relax(H):- temspa(sim,K),tempiscina(sim,U),intersection(K,U,H);true.
+
+%relaxar
+perfil(1,Z):- temginasio(sim,K),tempa(sim,U),temrestaurante(sim,L),relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
+perfil(2,Z):- temginasio(sim,K),tempa(sim,U),temrestaurante(nao,L),relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
+perfil(3,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(nao, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z). %nao tem nenhum
+perfil(4,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(nao, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
+perfil(5,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(sim, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).%nenhum
+perfil(6,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(sim, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).
+perfil(7,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(nao, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).%nada
+perfil(8,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(sim, L), relax(H),intersection(K,U,O), intersection(O,L,P),intersection(P,H,Z).%nada
+
+%conhecer ilha
+perfil(9,Z):- temginasio(sim, K), tempa(sim, U), temrestaurante(sim, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
+perfil(10,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(nao, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
+perfil(11,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(sim, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
+perfil(12,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(sim, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
+perfil(13,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(nao, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
+perfil(14,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(nao, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
+perfil(15,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(sim, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
+perfil(16,Z):- temginasio(sim, K), tempa(sim, U), temrestaurante(nao, L),temestacionamento(sim,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
+perfil(17,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(nao, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
+perfil(18,Z):- temginasio(nao, K), tempa(nao, U), temrestaurante(sim, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
+perfil(19,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(sim, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
+perfil(20,Z):- temginasio(sim, K), tempa(nao, U), temrestaurante(nao, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
+perfil(21,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(nao, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
+perfil(22,Z):- temginasio(nao, K), tempa(sim, U), temrestaurante(sim, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
+perfil(23,Z):- temginasio(sim, K), tempa(sim, U), temrestaurante(nao, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).%nada
+perfil(24,Z):- temginasio(sim, K), tempa(sim, U), temrestaurante(sim, L),temestacionamento(nao,H), intersection(K,U,O), intersection(O,L,P), intersection(P,H,Z).
 
 
-perfil(1,Z):- (tempa(sim),temginasio(sim),temrestaurante(sim),Z).
-perfil(2,Z) :- tempa(nao),temginasio(nao),temrestaurante(nao).
 
