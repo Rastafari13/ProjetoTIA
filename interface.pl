@@ -1,5 +1,5 @@
 :-dynamic(fact/1),
-[bd, bc].
+[bd, bc, proof, forward].
 
 menu:- nl,nl , 	write('********************************************************************************************************'), nl,
 				write('Ola viajante! Esta pronto/a para uma nova aventura?'),nl,
@@ -29,21 +29,27 @@ questao1:-	write('**************************************************************
 			read(A1),
 			(
 			(A1 == 1), assert(fact(relaxar)), questao3;
-            (A1 == 2), assert(fact(conhecer)), questao2).
+            (A1 == 2), assert(fact(ilha)), questao2).
 
 questao2:-	write('********************************************************************************************************'), nl,
 			write('- Pretente alugar carro?'), nl,
 			write('**'),nl,
 			write('**  1 - Sim.'), nl,
             write('**  2 - Nao.'), nl,nl,
-			read(A2),assert(variavel(A4)),questao3.
+			read(A2),
+			(
+            (A2 == 1), assert(fact(carro)), questao3;
+            (A2 == 2), assert(fact(nao_carro)), questao3).
 
 questao3:-	write('********************************************************************************************************'), nl,
 			write('- Pretende ter o pequeno-almoco incluido na sua estadia?'), nl,
 			write('**'),nl,
 			write('**  1 - Sim.'), nl,
 			write('**  2 - Nao.'), nl,
-			read(A3), assert(variavel(A4)),questao4.
+			read(A3),
+			(
+			(A3 == 1), assert(fact(pa)), questao4;
+			(A3 == 2), assert(fact(nao_pa)), questao4).
 
 
 questao4:- 	write('********************************************************************************************************'), nl,
@@ -51,7 +57,10 @@ questao4:- 	write('*************************************************************
 			write('**'),nl,
 			write('**  1 - Sim.'), nl,
             write('**  2 - Nao.'), nl,
-			read(A4),assert(variavel(A4)), questao5.
+			read(A4),
+			(
+			(A4 == 1), assert(fact(ginasio)), questao5;
+			(A4 == 2), assert(fact(nao_ginasio)), questao5).
 
 
 questao5:- 	write('********************************************************************************************************'), nl,
@@ -59,16 +68,19 @@ questao5:- 	write('*************************************************************
 			write('**'),nl,
 			write('**  1 - Sim.'),nl,
 			write('**  2 - Nao.' ),nl, nl,
-			read(A5),assert(variavel(A5)),resultado.
+			read(A5),
+			(
+			(A5 == 1), assert(fact(restaurante)), resultado;
+			(A5 == 2), assert(fact(nao_restaurante)), resultado).
 
 
-resultado:- write('********************************************************************************************************'), nl,                                                                                             **'), nl,
-			write('Alojamentos sugeridos:'), nl,                                                                                                  **'), nl,
-			write('********************************************************************************************************').
+resultado :- 	write('Resultado Obtido'), nl,
+				result.
 
-resultadowrite(P):-	variavel(A4),nl,
-                    write('O seu perfil e o'),nl,
+resultadowrite(P):-	Z,nl,
+					write('     O seu perfil e o'),nl,
 					write('     *** '),write(P),write(' ***'),nl,nl,
-					write('Alojamentos: '),perfil(P,A4),nl,nl,
+					write('     Alojamentos aconselhados: '),perfil(P,Z),nl,nl,
 					write('********************************************************************************************************'),
-					retract(A4), retractall(fact(_)).
+					retractall(Z,fact(_)).
+

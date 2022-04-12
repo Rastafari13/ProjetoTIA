@@ -1,4 +1,5 @@
 %base de conhecimentos
+:-[forward,bd,proof],dynamic(fact/1).
 
 %criar perfis
 
@@ -28,5 +29,4 @@ if ilha and nao_carro and pa and nao_ginasio and nao_restaurante then 21.
 if ilha and nao_carro and pa and nao_ginasio and restaurante then 22.
 if ilha and nao_carro and pa and ginasio and nao_restaurante then 23.
 if ilha and nao_carro and pa and ginasio and restaurante then 24.
-
 
