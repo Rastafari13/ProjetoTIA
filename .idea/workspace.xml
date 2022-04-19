@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="de921c39-4912-4b1e-96f0-b1e58c36ef80" name="Changes" comment="trabalho dia 12 abril">
+    <list default="true" id="de921c39-4912-4b1e-96f0-b1e58c36ef80" name="Changes" comment="13 abril">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/forward.pl" beforeDir="false" afterPath="$PROJECT_DIR$/forward.pl" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/interface.pl" beforeDir="false" afterPath="$PROJECT_DIR$/interface.pl" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proof.pl" beforeDir="false" afterPath="$PROJECT_DIR$/proof.pl" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +39,14 @@
       <option name="project" value="LOCAL" />
       <updated>1649779693916</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="13 abril">
+      <created>1649865477739</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1649865477739</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -57,6 +63,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="trabalho dia 12 abril" />
-    <option name="LAST_COMMIT_MESSAGE" value="trabalho dia 12 abril" />
+    <MESSAGE value="13 abril" />
+    <option name="LAST_COMMIT_MESSAGE" value="13 abril" />
   </component>
 </project>

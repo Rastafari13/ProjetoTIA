@@ -77,11 +77,6 @@ questao5:- 	write('*************************************************************
 resultado :- 	write('Resultado Obtido'), nl,
 				result.
 
-resultadowrite(P):-	Z,nl,
-					write('     O seu perfil e o'),nl,
-					write('     *** '),write(P),write(' ***'),nl,nl,
-					write('     Alojamentos aconselhados: '),perfil(P,Z),nl,nl,
-					write('********************************************************************************************************'),
-					retractall(Z,fact(_)).
+
 
 
