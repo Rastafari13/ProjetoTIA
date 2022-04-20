@@ -3,14 +3,14 @@
 
 %criar perfis
 
-if relaxar and pa and ginasio and restaurante and piscina and spa then 1.
-if relaxar and pa and ginasio and nao_restaurante and piscina and spa then 2.
-if relaxar and pa and nao_ginasio and nao_restaurante and piscina and spa then 3.
-if relaxar and nao_pa and nao_ginasio and nao_restaurante and piscina and spa then 4.
-if relaxar and nao_pa and nao_ginasio and restaurante and piscina and spa then 5.
-if relaxar and nao_pa and ginasio and restaurante and piscina and spa then 6.
-if relaxar and nao_pa and ginasio and nao_restaurante and piscina and spa then 7.
-if relaxar and pa and nao_ginasio and restaurante and piscina and spa then 8.
+if relaxar and pa and ginasio and restaurante then 1.
+if relaxar and pa and ginasio and nao_restaurante then 2.
+if relaxar and pa and nao_ginasio and nao_restaurante then 3.
+if relaxar and nao_pa and nao_ginasio and nao_restaurante then 4.
+if relaxar and nao_pa and nao_ginasio and restaurante then 5.
+if relaxar and nao_pa and ginasio and restaurante then 6.
+if relaxar and nao_pa and ginasio and nao_restaurante then 7.
+if relaxar and pa and nao_ginasio and restaurante then 8.
 
 %conhecer a ilha
 if ilha and carro and pa and ginasio and restaurante then 9.
@@ -29,4 +29,5 @@ if ilha and nao_carro and pa and nao_ginasio and nao_restaurante then 21.
 if ilha and nao_carro and pa and nao_ginasio and restaurante then 22.
 if ilha and nao_carro and pa and ginasio and nao_restaurante then 23.
 if ilha and nao_carro and pa and ginasio and restaurante then 24.
+
 

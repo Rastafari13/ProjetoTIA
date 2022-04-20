@@ -29,12 +29,11 @@ composed_fact( Cond1 or Cond2)  :-
    ;
    composed_fact( Cond2).
 
-resultadowrite(P):-	print(P),print(Z),nl,
-					write('     O seu perfil e o'),nl,
-					write('     *** '),write(P),write(' ***'),nl,nl,
-					write('     Alojamentos aconselhados: '),perfil(P,Z),nl,nl,
-					write('********************************************************************************************************'),
-					retractall(Z,fact(_)).
+resultadowrite(P):-	print(P),nl,
+					write('O seu perfil e o: '),nl,
+					write('   '),write(P),write('!'),nl,nl,
+					write('     Alojamentos aconselhados: '),perfil(P),nl,nl,
+					retractall(fact(_)).
 
 
 
