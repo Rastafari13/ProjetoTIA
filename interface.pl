@@ -72,3 +72,4 @@ resultado :- 	write('Resultado Obtido'), nl,
 
 
 
+

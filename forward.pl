@@ -30,9 +30,9 @@ composed_fact( Cond1 or Cond2)  :-
    composed_fact( Cond2).
 
 resultadowrite(P):-	print(P),nl,
-					write('O seu perfil e o: '),nl,
-					write('   '),write(P),write('!'),nl,nl,
-					write('     Alojamentos aconselhados: '),perfil(P),nl,nl,
+					write('O seu perfil e o: '),write(P),write('!'),nl,nl,
+					write('     Alojamentos aconselhados: '),perfil(P),
+					nl,nl,
 					retractall(fact(_)).
 
 
