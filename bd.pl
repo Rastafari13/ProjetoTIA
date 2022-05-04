@@ -2,8 +2,8 @@
 :-dynamic(fact/1),[forward].
 %alojamento(nome,preco,avaliacao,restaurante,estacionamento,localizacao,piscina,pequeno_almoco,spa,ginasio,perto(1,2,3,4,5,6,7,8,9),medio(1,2,3,4,5,6,7,8,9),longe(1,2,3,4,5,6,7,8,9).
 
-alojamento('Terrace Mar Suite Hotel','128 euros','8.9',sim,nao,'5km',sim,sim,sim,nao,['Cabo Girão','Casas Típicas de Santana','Aeroporto','Praia do Gorgulho','Mercado dos Lavradores','Museu do CR7'],['Pico do Arieiro','Cascata dos Anjos'],['Ribeira da Janela'])
-alojamento('Downtown Fuchal Apartments by An Island Apart','475 euros','8.7',nao,nao,'1.2km',nao,sim,nao,nao,['Cabo Girão','Casas Típicas de Santana','Aeroporto','Praia Almirante reis Beach','Mercado dos Lavradores','Museu do CR7'],['Pico do Arieiro','Cascata dos Anjos'],['Ribeira da Janela'])
+alojamento('Terrace Mar Suite Hotel','128 euros','8.9',sim,nao,'5km',sim,sim,sim,nao,['Cabo Girão','Casas Típicas de Santana','Aeroporto','Praia do Gorgulho','Mercado dos Lavradores','Museu do CR7'],['Pico do Arieiro','Cascata dos Anjos'],['Ribeira da Janela']).
+alojamento('Downtown Fuchal Apartments by An Island Apart','475 euros','8.7',nao,nao,'1.2km',nao,sim,nao,nao,['Cabo Girão','Casas Típicas de Santana','Aeroporto','Praia Almirante reis Beach','Mercado dos Lavradores','Museu do CR7'],['Pico do Arieiro','Cascata dos Anjos'],['Ribeira da Janela']).
 alojamento('ASPA-Alegria Studios','69 euros','8.7',nao,nao,'4.0km',nao,nao,sim,sim,['Aeroporto','Praia Almirante Reis Beach','Cabo Girão','Mercado dos Lavradores','Museu do CR7'],['Cascata dos Anjos','Casas Típicas de Santana','Pico do Arieiro'],['Ribeira da Janela']).
 alojamento('Estalagem Ponta do Sol','122 euros','9.0',nao,sim,'1.4km',sim,sim,sim,sim,['Cascata dos Anjos','Cabo Girão','Praia do Sol'],['Museu CR7','Ribeira da Janela','Mercado dos Lavradores'],['Aeroporto','Casas Típicas de Santana','Pico do Arieiro']).
 alojamento('Porto Mare','153 euros','9.2',sim,sim,'2.3km',sim,sim,sim,sim,['Aeroporto','Cabo Girão','Museu CR7','Praia do Gorgulho','Mercado dos Lavradores'],['Cascata dos Anjos','Pico do Arieiro'],['Ribeira da Janela','Casas Típicas de Santana']).
